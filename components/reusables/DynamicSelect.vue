@@ -28,7 +28,7 @@
 				<InputText v-model="inputvalue"
 									 ref="inputElement"
 									 placeholder="search" />
-				<CloseIcon v-on:click="disableShowOptions"
+				<CloseIcon v-on:click="showOptions = false"
 									 class="ml-1 w-4 h-4 my-2" />
 			</div>
 
@@ -51,7 +51,7 @@
 				<li v-for="item in filteredItems">
 					<div v-if="!selected || (selected && formatter.toSelectOption(selected).key !== formatter.toSelectOption(item).key)"
 							 v-on:click="updateSelected(item)"
-							 v-on:blur="disableShowOptions"
+							 v-on:blur="showOptions = false"
 							 class="z-100 text-neutral-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-neutral-200 text-xs hover:bg-neutral-100">
 						<p>{{ formatter.toSelectOption(item).title }}</p>
 						<p v-if="formatter.toSelectOption(item).subtitle" class="text-gray-400">{{ formatter.toSelectOption(item).subtitle }}</p>
@@ -80,17 +80,13 @@ const clone = function <T>(item: T): T {
 	return JSON.parse(JSON.stringify(item))
 }
 
-const inputvalue = "";
-watch(() => clone(inputvalue), (currentValue, oldValue) => {
+const inputvalue: Ref<string> = ref("");
+watch(() => clone(inputvalue.value), (currentValue, oldValue) => {
 	emit('input-changed', currentValue)
 })
 
 const showOptions = ref(props.showingOptions);
-const filteredItems = computed(() => props.items.filter(item => props.formatter.toSelectOption(item).title !== '' && props.formatter.toSelectOption(item).title?.toLowerCase().includes(inputvalue.toLowerCase())))
-
-const disableShowOptions = function() {
-	showOptions.value = false
-}
+const filteredItems = computed(() => props.items.filter(item => props.formatter.toSelectOption(item).title !== '' && props.formatter.toSelectOption(item).title?.toLowerCase().includes(inputvalue.value.toLowerCase())))
 
 const selected: Ref<Object> = ref(props.modelValue)
 const updateSelected = function (item: Object, resetPin = true) {
