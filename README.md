@@ -1,73 +1,24 @@
-# Nuxt Layer Starter
+# Nuxt Components
 
-Create Nuxt extendable layer with this GitHub template.
+A few years back, a friend of mine asked for some help to implement a project for him. It was during lockdown. I started learning NuxtJS for that. First few implementations were horrible, but I was making some progress on learning how to write reusable code to help me iterate faster.
 
-## Setup
+This library is the collection of such components/composables/sdk.
 
-Make sure to install the dependencies:
+## Usage
 
-```bash
-pnpm install
+Add following lines to your `nuxt.config.ts` file:
+
+```
+extends: [
+  'github:rajatjindal/nuxt-components'
+],
 ```
 
-## Working on your theme
+and you are all set to use these components.
 
-Your theme is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
+TODO: add more documentation and examples
 
-The `.playground` directory should help you on trying your theme during development.
+Disclaimers:
 
-Running `pnpm dev` will prepare and boot `.playground` directory, which imports your theme itself.
-
-## Distributing your theme
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
-
-```bash
-npm publish --access public
-```
-
-Once done, your users will only have to run:
-
-```bash
-npm install --save your-theme
-```
-
-Then add the dependency to their `extends` in `nuxt.config`:
-
-```ts
-defineNuxtConfig({
-  extends: 'your-theme'
-})
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-pnpm dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-pnpm build
-```
-
-Or statically generate it with:
-
-```bash
-pnpm generate
-```
-
-Locally preview production build:
-
-```bash
-pnpm preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- I am pretty new to Nuxt and mainly using these components in hobby projects. Please use at your own risk.
+- These components are customized to my needs. and I will most likely continue to make changes as per my requirements. So I won't commit to any backward compatibility promises.
