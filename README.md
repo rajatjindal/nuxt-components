@@ -22,3 +22,11 @@ Disclaimers:
 
 - I am pretty new to Nuxt and mainly using these components in hobby projects. Please use at your own risk.
 - These components are customized to my needs. and I will most likely continue to make changes as per my requirements. So I won't commit to any backward compatibility promises.
+
+Credits:
+
+- Most of the icons are being used from [iconic.app](https://iconic.app)
+- Tailwind
+- Nuxt
+- Vue
+- Typescript
