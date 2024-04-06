@@ -28,7 +28,7 @@
 				<InputText v-model="inputvalue"
 									 ref="inputElement"
 									 placeholder="search" />
-				<CloseIcon v-on:click="showOptions = false"
+				<CloseIcon v-on:click="disableShowOptions"
 									 class="ml-1 w-4 h-4 my-2" />
 			</div>
 
@@ -51,7 +51,7 @@
 				<li v-for="item in filteredItems">
 					<div v-if="!selected || (selected && formatter.toSelectOption(selected).key !== formatter.toSelectOption(item).key)"
 							 v-on:click="updateSelected(item)"
-							 v-on:blur="showOptions = false"
+							 v-on:blur="disableShowOptions"
 							 class="z-100 text-neutral-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-neutral-200 text-xs hover:bg-neutral-100">
 						<p>{{ formatter.toSelectOption(item).title }}</p>
 						<p v-if="formatter.toSelectOption(item).subtitle" class="text-gray-400">{{ formatter.toSelectOption(item).subtitle }}</p>
@@ -122,6 +122,10 @@ const enableShowOptions = function () {
 const resetPinFunc = function() {
 	props.formatter.resetPin()
 		pinned.value = null
+}
+
+const disableShowOptions = function() {
+	showOptions.value = false
 }
 
 const pinIt = function() {
