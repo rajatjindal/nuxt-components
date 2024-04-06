@@ -1,5 +1,9 @@
 # Nuxt Components
 
+Reusable Nuxt Components. Help building the basic CRUD operations using UI faster.
+
+## Story
+
 A few years back, a friend of mine asked for some help to implement a project for him. It was during lockdown. I started learning NuxtJS for that. First few implementations were horrible, but I was making some progress on learning how to write reusable code to help me iterate faster.
 
 This library is the collection of such components/composables/sdk.
