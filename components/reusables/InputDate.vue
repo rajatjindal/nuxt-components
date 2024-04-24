@@ -18,6 +18,8 @@
 </template>
 <script setup lang="ts">
 import moment from 'moment-timezone'
+import type {Moment} from 'moment-timezone'
+
 import type { MomentInput } from 'moment'
 
 const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
