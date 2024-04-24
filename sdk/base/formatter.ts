@@ -1,6 +1,7 @@
 import  type { AdditionalActionsConfig } from './types'
 import  type { MomentInput } from 'moment'
 import moment from 'moment'
+import Moment from 'moment-timezone'
 
 export interface TableRow {
 	colspan: number,
