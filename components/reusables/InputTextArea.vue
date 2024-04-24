@@ -16,7 +16,6 @@
 	</div>
 </template>
 <script setup lang="ts">
-import _ from 'lodash'
 const emit = defineEmits(['update:modelValue'])
 
 const props = defineProps({
@@ -37,5 +36,19 @@ const updateInput = function (event: Event) {
 	emit('update:modelValue', el.value)
 }
 
-const lazyUpdateInput = _.debounce(updateInput, 500)
+
+function debounce<Params extends any[]>(
+	func: (...args: Params) => any,
+	timeout: number,
+): (...args: Params) => void {
+	let timer: NodeJS.Timeout
+	return (...args: Params) => {
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			func(...args)
+		}, timeout)
+	}
+}
+
+const lazyUpdateInput = debounce(updateInput, 500)
 </script>
