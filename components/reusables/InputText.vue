@@ -8,7 +8,7 @@
 					 :disabled="!editable"
 					 class="w-full border border-neutral-300 px-2 py-2 rounded-r-md text-xs focus:outline-none focus:border-2 focus:ring-primary-200 focus:border-primary-200 placeholder-neutral-400 focus:placeholder-neutral-50"
 					 :placeholder="placeholder"
-					 v-on:input="updateInput"
+					 v-on:input="lazyUpdateInput"
 					 v-on:focus="toggleFocused"
 					 v-on:blur="toggleFocused"
 					 :value="modelValue"
@@ -16,6 +16,8 @@
 	</div>
 </template>
 <script setup lang="ts">
+import _ from 'lodash'
+
 const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
 const props = defineProps({
@@ -41,4 +43,6 @@ const updateInput = function (event: Event) {
 	const el = event.target as HTMLInputElement;
 	emit('update:modelValue', el.value)
 }
+
+const lazyUpdateInput = _.debounce(updateInput, 500)
 </script>
