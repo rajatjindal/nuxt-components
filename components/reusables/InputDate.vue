@@ -17,7 +17,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import moment from 'moment-timezone'
+import moment from 'moment'
 import type {Moment} from 'moment-timezone'
 
 import type { MomentInput } from 'moment'

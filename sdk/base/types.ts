@@ -42,7 +42,7 @@ export interface AdditionalActionsConfig {
 }
 
 export interface RadioButtonInput {
-	value?: string | number;
+	value?: string | number | boolean;
 	display?: string;
 }
 
