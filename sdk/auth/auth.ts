@@ -6,7 +6,6 @@ export interface AuthDetails {
 const runtimeConfig = useRuntimeConfig().public.baseURL
 const baseURL = runtimeConfig
 
-
 export const fetchAuthDetails = function (): AuthDetails {
     const token = localStorage.getItem('auth-token')?.trim();
     if (!token) {

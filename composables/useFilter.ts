@@ -8,12 +8,10 @@ export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
     const latency = ref<Number>(0)
 
     async function fetchLatestData(filter: typeof inpFilter) {
-        console.log("inside data")
         items.value = await oclass.getAllItemsWithFilter(filter)
     }
 
     async function fetchLatestMeta(filter: typeof inpFilter) {
-        console.log("inside meta")
         meta.value = await oclass.getAllItemsWithFilterMeta(filter)
     }
 
@@ -21,7 +19,6 @@ export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
     watch(
         () => ({ ...inpFilter }),
         async (newFilter, oldFilter, onInvalidate) => {
-            console.log("inside watch ", newFilter)
             loading.value = true
             const startTime = new Date();
 
@@ -38,7 +35,6 @@ export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
     );
 
     onMounted(async () => {
-        console.log("inside mounted ", inpFilter)
         loading.value = true
         const startTime = new Date();
 

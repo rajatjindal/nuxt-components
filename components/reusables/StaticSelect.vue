@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SelectOption } from '@/sdk/base/formatter';
+import type { SelectOption } from '../../sdk/base/formatter';
 
 const emit = defineEmits(['update:modelValue'])
 

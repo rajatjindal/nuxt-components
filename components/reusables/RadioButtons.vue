@@ -7,7 +7,7 @@
 
 		<div :class="{ 'flex': alignment === 'horizontal', 'flex-col': alignment === 'vertical' }">
 			<div v-for="option in options"
-					 :key="option.value"
+					 :key="option.value?.toString()"
 					 class="mr-2 flex mt-2">
 				<input type="radio"
 							 class="form-radio"
@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { toISOFormatDate } from '@/sdk/base/formatter';
-import type { RadioButtonInput } from '@/sdk/base/types';
+import { toISOFormatDate } from '../../sdk/base/formatter';
+import type { RadioButtonInput } from '../../sdk/base/types';
 
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({

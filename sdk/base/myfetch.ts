@@ -1,5 +1,5 @@
 import { ofetch } from 'ofetch'
-import { fetchAuthDetails } from '@/sdk/auth/auth'
+import { fetchAuthDetails } from '../auth/auth'
 import EventBus from './eventbus'
 
 const runtimeConfig = useRuntimeConfig()

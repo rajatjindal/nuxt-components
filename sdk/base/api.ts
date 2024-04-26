@@ -1,6 +1,6 @@
 import { myfetch } from './myfetch'
 import  type { PagesMeta, Entity } from './types'
-import EventBus from '@/sdk/base/eventbus'
+import EventBus from './eventbus'
 
 export interface apiOptions {
 	redirect?: boolean;

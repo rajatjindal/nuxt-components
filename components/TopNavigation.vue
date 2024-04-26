@@ -20,7 +20,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { login, logout } from "@/sdk/auth/auth"
+import { login, logout } from "../sdk/auth/auth"
 
 const emit = defineEmits(['burger-clicked'])
 const burgerClicked = function() {

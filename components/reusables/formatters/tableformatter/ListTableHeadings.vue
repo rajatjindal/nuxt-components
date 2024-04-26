@@ -15,7 +15,7 @@
 
 
 <script setup lang="ts">
-import type { TableFormatter, TableRow } from '@/sdk/base/formatter';
+import type { TableFormatter, TableRow } from '../../../../sdk/base/formatter';
 
 const props = defineProps({
   formatter: { type: Object as PropType<TableFormatter<Object>>, required: true },
