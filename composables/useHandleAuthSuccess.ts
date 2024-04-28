@@ -1,4 +1,4 @@
-import { storeToken } from 'sdk-try-2'
+import { storeToken } from '@rajatjindal1983/crud-sdk'
 
 export async function useHandleAuthSuccess() {
     console.log("inside useHandleAuthSuccess ")

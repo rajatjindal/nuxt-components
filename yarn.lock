@@ -1120,10 +1120,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.25.tgz#f077fdc0b5d0078d30893396ff4827a13f99e817"
   integrity sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==
 
-"@rajatjindal1983/crud-sdk@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@rajatjindal1983/crud-sdk/-/crud-sdk-0.1.0.tgz#863a08494230aafea95864886cbc50d94b9c88a1"
-  integrity sha512-GEbPahbaN36pDVUSBGyA8vi8MpIffpdausePHBjmGKRHp7BmZdOFm29fXycHd2/SIF13YopFmv4L2mAXB7lmJQ==
+"@rajatjindal1983/crud-sdk@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@rajatjindal1983/crud-sdk/-/crud-sdk-0.1.1.tgz#8edbe8888f632b402800bdb704a143c33bbef0f0"
+  integrity sha512-Eek6byatH0YuyUNKtSvrxoTDV1GMvwohhtrBmEslBSAIP8RM9qWUt++B+P6/9KIQKG8zJYH5nWLamQZIzAyFdQ==
   dependencies:
     "@types/node" "^20.12.7"
     mitt "^3.0.1"

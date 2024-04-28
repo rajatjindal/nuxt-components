@@ -1,5 +1,5 @@
-import { fetchAuthDetails } from 'sdk-try-2'
-import type { AuthDetails } from 'sdk-try-2'
+import { fetchAuthDetails } from '@rajatjindal1983/crud-sdk'
+import type { AuthDetails } from '@rajatjindal1983/crud-sdk'
 
 export function useIsAuthenticated() {
     const { isAuthenticated }: AuthDetails = fetchAuthDetails()

@@ -1,5 +1,5 @@
-import type { PagesMeta } from 'sdk-try-2'
-import type { IBaseAPI } from 'sdk-try-2'
+import type { PagesMeta } from '@rajatjindal1983/crud-sdk'
+import type { IBaseAPI } from '@rajatjindal1983/crud-sdk'
 
 export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
     const items = ref<R>()

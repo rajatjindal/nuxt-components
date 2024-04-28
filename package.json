@@ -39,7 +39,7 @@
     "vite": "^4.3.9",
     "vue-tsc": "^1.8.3",
     "webpack": "^5.0.0",
-    "@rajatjindal1983/crud-sdk": "^0.1.0"
+    "@rajatjindal1983/crud-sdk": "^0.1.1"
   },
   "description": "Reusable Nuxt Components. Help building the basic CRUD operations using UI faster.",
   "bugs": {
