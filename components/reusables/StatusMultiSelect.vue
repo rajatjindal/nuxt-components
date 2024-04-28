@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import type { SelectOption } from '../../sdk/base/formatter';
-import type { StatusFilter } from '../../sdk/base/types';
+import type { SelectOption } from '@rajatjindal1983/crud-sdk';
+import type { StatusFilter } from '@rajatjindal1983/crud-sdk';
 
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({

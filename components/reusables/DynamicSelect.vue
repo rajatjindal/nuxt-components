@@ -63,7 +63,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { SelectFormatter } from '../../sdk/base/formatter';
+import type { SelectFormatter } from '@rajatjindal1983/crud-sdk';
 
 const emit = defineEmits(['update:modelValue', 'input-changed'])
 const props = defineProps({

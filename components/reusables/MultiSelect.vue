@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import type { SelectOption } from '../../sdk/base/formatter';
+import type { SelectOption } from '@rajatjindal1983/crud-sdk';
 
 const emit = defineEmits(['update:modelValue'])
 

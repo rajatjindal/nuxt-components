@@ -35,9 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import type { PaginationConfig } from "../../sdk/base/types"
-import type { PageFilter } from "../../sdk/base/types"
-import type { IBaseAPI } from "../../sdk/base/api"
+import type { PaginationConfig } from "@rajatjindal1983/crud-sdk"
+import type { PageFilter } from "@rajatjindal1983/crud-sdk"
+import type { IBaseAPI } from "@rajatjindal1983/crud-sdk"
 
 const props = defineProps({
 	filter: { type: Object as PropType<PageFilter>, default: { page: 0, perPage: 15 } },

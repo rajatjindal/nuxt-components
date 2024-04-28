@@ -37,8 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import type { AdditionalActionsConfig } from '../../sdk/base/types'
-import type { TableFormatter } from '../../sdk/base/formatter';
+import type { AdditionalActionsConfig } from '@rajatjindal1983/crud-sdk'
+import type { TableFormatter } from '@rajatjindal1983/crud-sdk';
 
 const emit = defineEmits(['eventTriggered'])
 

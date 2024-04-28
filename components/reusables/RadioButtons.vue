@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { toISOFormatDate } from '../../sdk/base/formatter';
-import type { RadioButtonInput } from '../../sdk/base/types';
+import { toISOFormatDate } from '@rajatjindal1983/crud-sdk';
+import type { RadioButtonInput } from '@rajatjindal1983/crud-sdk';
 
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
