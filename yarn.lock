@@ -1120,6 +1120,18 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.25.tgz#f077fdc0b5d0078d30893396ff4827a13f99e817"
   integrity sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==
 
+"@rajatjindal1983/crud-sdk@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@rajatjindal1983/crud-sdk/-/crud-sdk-0.1.0.tgz#863a08494230aafea95864886cbc50d94b9c88a1"
+  integrity sha512-GEbPahbaN36pDVUSBGyA8vi8MpIffpdausePHBjmGKRHp7BmZdOFm29fXycHd2/SIF13YopFmv4L2mAXB7lmJQ==
+  dependencies:
+    "@types/node" "^20.12.7"
+    mitt "^3.0.1"
+    moment "^2.29.4"
+    moment-timezone "^0.5.45"
+    ofetch "^1.3.4"
+    typescript "*"
+
 "@rollup/plugin-alias@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-5.1.0.tgz#99a94accc4ff9a3483be5baeedd5d7da3b597e93"
@@ -5704,16 +5716,6 @@ scule@^1.0.0, scule@^1.1.1, scule@^1.2.0, scule@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/scule/-/scule-1.3.0.tgz#6efbd22fd0bb801bdcc585c89266a7d2daa8fbd3"
   integrity sha512-6FtHJEvt+pVMIB9IBY+IcCJ6Z5f1iQnytgyfKMhDKgmzYG+TeH/wx1y3l27rshSbLiSanrR9ffZDrEsmjlQF2g==
-
-"sdk-try-2@file:../sdk-try-2":
-  version "1.0.0"
-  dependencies:
-    "@types/node" "^20.12.7"
-    mitt "^3.0.1"
-    moment "^2.29.4"
-    moment-timezone "^0.5.45"
-    ofetch "^1.3.4"
-    typescript "*"
 
 semver@^6.0.0, semver@^6.3.1:
   version "6.3.1"
