@@ -1,4 +1,4 @@
-import { storeToken } from '../sdk/auth/auth'
+import { storeToken } from 'sdk-try-2'
 
 export async function useHandleAuthSuccess() {
     console.log("inside useHandleAuthSuccess ")

@@ -1,5 +1,5 @@
-import { fetchAuthDetails } from '../sdk/auth/auth'
-import type { AuthDetails } from '../sdk/auth/auth'
+import { fetchAuthDetails } from 'sdk-try-2'
+import type { AuthDetails } from 'sdk-try-2'
 
 export function useIsAuthenticated() {
     const { isAuthenticated }: AuthDetails = fetchAuthDetails()

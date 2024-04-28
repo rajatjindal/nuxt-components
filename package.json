@@ -38,7 +38,8 @@
     "typescript": "^5.1.6",
     "vite": "^4.3.9",
     "vue-tsc": "^1.8.3",
-    "webpack": "^5.0.0"
+    "webpack": "^5.0.0",
+    "sdk-try-2": "file:../sdk-try-2"
   },
   "description": "Reusable Nuxt Components. Help building the basic CRUD operations using UI faster.",
   "bugs": {

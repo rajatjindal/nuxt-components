@@ -1,5 +1,5 @@
-import type { PagesMeta } from '../sdk/base/types'
-import type { IBaseAPI } from '../sdk/base/api'
+import type { PagesMeta } from 'sdk-try-2'
+import type { IBaseAPI } from 'sdk-try-2'
 
 export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
     const items = ref<R>()
@@ -18,13 +18,13 @@ export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
     // this helped: https://www.thisdot.co/blog/vue-3-composition-api-watch-and-watcheffect/
     watch(
         () => ({ ...inpFilter }),
-        async (newFilter, oldFilter, onInvalidate) => {
+        async (newFilter: F, oldFilter: F, onInvalidate: any) => {
             loading.value = true
             const startTime = new Date();
 
             try {
-                await Promise.all([fetchLatestMeta(inpFilter), fetchLatestData(inpFilter)])
-            } catch(error) {
+                await Promise.all([fetchLatestMeta(newFilter), fetchLatestData(newFilter)])
+            } catch (error) {
                 console.log("error is ", error)
             }
 
@@ -40,10 +40,10 @@ export function useFilter<F, R extends any[]>(oclass: IBaseAPI, inpFilter: F) {
 
         try {
             await Promise.all([fetchLatestMeta(inpFilter), fetchLatestData(inpFilter)])
-        } catch(error) {
+        } catch (error) {
             console.log("error is ", error)
         }
-        
+
 
         loading.value = false
         const endTime = new Date();
