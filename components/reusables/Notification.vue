@@ -9,7 +9,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import EventBus from '@rajatjindal1983/crud-sdk'
+import {EventBus} from '@rajatjindal1983/crud-sdk'
 
 const error = ref("" as any)
 const success = ref("" as any)
