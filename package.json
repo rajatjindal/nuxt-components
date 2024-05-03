@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.1.3",
-    "@rajatjindal1983/crud-sdk": "^0.1.5",
+    "@rajatjindal1983/crud-sdk": "^0.1.6",
     "mitt": "^3.0.1",
     "moment": "^2.30.1",
     "moment-timezone": "^0.5.45",
