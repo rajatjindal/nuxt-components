@@ -4,6 +4,7 @@
        :key="index">
     <div class="text-xs text-neutral-600 text-left"
          :class="{ [row.class]: true }">
+         <span v-if="row.rawHTML" v-html="row.rawHTML"></span>
          <span v-if="!row.editable">{{ row.value }}</span>
          <EditableInputNumber v-if="row.editable" :raw="(row.value as number)" :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function() {}"/>
     </div>
