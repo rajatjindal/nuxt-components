@@ -25,4 +25,15 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  vite: {
+    clearScreen: false,
+    optimizeDeps: {
+      noDiscovery: true
+    },
+    resolve: {
+      alias: {
+        vue: 'vue/dist/vue.esm-bundler.js'
+      }
+    }
+  }
 })

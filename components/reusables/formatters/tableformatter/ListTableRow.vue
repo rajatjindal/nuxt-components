@@ -4,9 +4,9 @@
        :key="index">
     <div class="text-xs text-neutral-600 text-left"
          :class="{ [row.class]: true }">
-         <span v-if="row.rawHTML" v-html="row.rawHTML"></span>
-         <span v-if="!row.editable">{{ row.value }}</span>
-         <EditableInputNumber v-if="row.editable" :raw="(row.value as number)" :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function() {}"/>
+         <component v-if="row.rawHTML" :is="compile(row.rawHTML)"></component>
+         <span v-else-if="!row.editable">{{ row.value }}</span>
+         <EditableInputNumber v-else-if="row.editable" :raw="(row.value as number)" :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function() {}"/>
     </div>
   </div>
 
@@ -25,13 +25,14 @@
 <script setup lang="ts">
 import type { TableFormatter, TableRow } from '@rajatjindal1983/crud-sdk';
 import type { AdditionalActionsConfig } from '@rajatjindal1983/crud-sdk'
+import { compile } from 'vue';
 
 const emit = defineEmits(['eventTriggered'])
 
 const props = defineProps({
   item: { type: Object, required: true },
   formatter: { type: Object as PropType<TableFormatter<Object>>, required: true },
-  addon: { type: Object as PropType<Component>, required: false, default: null }
+  addon: { type: Object, required: false, default: null }
 })
 
 const getColSpan = function (index: number): number {
