@@ -1,6 +1,6 @@
 <template>
-  <div :class="'col-span-' + getColSpan(index)"
-       v-for="(row, index) in formatter.columns(item)"
+  <div :class="'col-span-' + getColSpan(row)"
+       v-for="(row, index) in rowItemsWithIndex(0)"
        :key="index">
     <div class="text-xs text-neutral-600 text-left"
          :class="{ [row.class]: true }">
@@ -16,6 +16,19 @@
                        :formatter="formatter"
                        v-on:eventTriggered="triggerEvent" />
   </div>
+
+  <div :class="'col-span-' + getColSpan(row)"
+       v-for="(row, index) in rowItemsWithIndex(1)"
+       :key="index">
+    <div class="text-xs text-neutral-600 text-left"
+         :class="{ [row.class]: true }">
+         <component v-if="row.rawHTML" :is="compile(row.rawHTML)"></component>
+         <span v-else-if="!row.editable">{{ row.value }}</span>
+         <EditableInputNumber v-else-if="row.editable" :raw="(row.value as number)" :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function() {}"/>
+    </div>
+  </div>
+
+
 
   <div v-if="addon">
     <component :is="addon" :item="item" />
@@ -35,12 +48,8 @@ const props = defineProps({
   addon: { type: Object, required: false, default: null }
 })
 
-const getColSpan = function (index: number): number {
-  return props.formatter.columns(props.item)[index].colspan
-}
-
-const accumulator = function (prevValue: number, item: TableRow) {
-  return item.colspan + prevValue
+const getColSpan = function (item: TableRow): number {
+  return item.colspan
 }
 
 const editing = ref(false)
@@ -49,4 +58,13 @@ const triggerEvent = function (action: AdditionalActionsConfig) {
   console.log("ListTableRow")
   emit('eventTriggered', props.item, action)
 }
+
+const rowItemsWithIndex = function(rowIndex: number): TableRow[] {
+  if (rowIndex === 0) {
+    return props.formatter.columns(props.item).filter(i => !i.rowIndex || i.rowIndex === rowIndex)
+  } 
+  
+  return props.formatter.columns(props.item).filter(i => i.rowIndex === rowIndex)
+}
+
 </script>

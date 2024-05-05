@@ -1,6 +1,6 @@
 <template>
   <div :class="colclass(row)"
-       v-for="(row, index) in formatter.columns(item)">
+       v-for="(row, index) in rowItemsWithIndex(0)">
     <div :class="{ [row.class]: true }"
          class="py-1 text-left text-xs font-medium text-neutral-500 tracking-wider">
       {{ row.title }}
@@ -24,6 +24,10 @@ const props = defineProps({
 
 const colclass = function (row: TableRow): string {
   return 'col-span-' + row.colspan.toString()
+}
+
+const rowItemsWithIndex = function(rowIndex: number): TableRow[] {
+  return props.formatter.columns(props.item).filter(i => !i.rowIndex || i.rowIndex === rowIndex)
 }
 
 </script>

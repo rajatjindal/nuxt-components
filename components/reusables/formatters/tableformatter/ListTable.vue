@@ -6,7 +6,7 @@
   </div>
   <div v-for="(item, index) in items"
        :key="index">
-    <div :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true }">
+    <div :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true , ['bg-blue-50']: +index % 2 === 0}">
       <ListTableRow :item="item"
                     :addon="addon"
                     v-on:eventTriggered="triggerEvent"
@@ -28,6 +28,14 @@ const props = defineProps({
 })
 
 const accumulator = function (prevValue: number, item: TableRow) {
+  // don't consider items where rowIndex > 0
+  // these items are added to 2nd row of the div
+  // and does not need to be counted when calculating
+  // grid for primary row in div
+  if (item.rowIndex && item.rowIndex > 0) {
+    return prevValue
+  }
+
   return item.colspan + prevValue
 }
 
