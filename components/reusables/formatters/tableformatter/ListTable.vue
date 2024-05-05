@@ -6,9 +6,10 @@
   </div>
   <div v-for="(item, index) in items"
        :key="index">
-    <div :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true , ['bg-blue-50']: +index % 2 === 0}">
+    <div :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true , ['bg-blue-50 text-blue-900']: +index % 2 === 0}">
       <ListTableRow :item="item"
                     :addon="addon"
+                    :itemIndex="index"
                     v-on:eventTriggered="triggerEvent"
                     :formatter="formatter" />
     </div>

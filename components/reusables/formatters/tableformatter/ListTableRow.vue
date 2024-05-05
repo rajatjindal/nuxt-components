@@ -2,11 +2,14 @@
   <div :class="'col-span-' + getColSpan(row)"
        v-for="(row, index) in rowItemsWithIndex(0)"
        :key="index">
-    <div class="text-xs text-neutral-600 text-left"
+    <div class="text-xs text-left"
          :class="{ [row.class]: true }">
-         <component v-if="row.rawHTML" :is="compile(row.rawHTML)"></component>
-         <span v-else-if="!row.editable">{{ row.value }}</span>
-         <EditableInputNumber v-else-if="row.editable" :raw="(row.value as number)" :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function() {}"/>
+      <component v-if="row.rawHTML"
+                 :is="compile(row.rawHTML)"></component>
+      <span v-else-if="!row.editable">{{ row.value }}</span>
+      <EditableInputNumber v-else-if="row.editable"
+                           :raw="(row.value as number)"
+                           :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function () { }" />
     </div>
   </div>
 
@@ -20,18 +23,22 @@
   <div :class="'col-span-' + getColSpan(row)"
        v-for="(row, index) in rowItemsWithIndex(1)"
        :key="index">
-    <div class="text-xs text-neutral-600 text-left"
-         :class="{ [row.class]: true }">
-         <component v-if="row.rawHTML" :is="compile(row.rawHTML)"></component>
-         <span v-else-if="!row.editable">{{ row.value }}</span>
-         <EditableInputNumber v-else-if="row.editable" :raw="(row.value as number)" :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function() {}"/>
+    <div class="text-xs text-left"
+         :class="{ [row.class]: true, 'text-neutral-600': +itemIndex % 2 !== 0, 'text-blue-900': +itemIndex % 2 === 0 }">
+      <component v-if="row.rawHTML"
+                 :is="compile(row.rawHTML)"></component>
+      <span v-else-if="!row.editable">{{ row.value }}</span>
+      <EditableInputNumber v-else-if="row.editable"
+                           :raw="(row.value as number)"
+                           :onChangeFunc="row.onChangeFunc ? row.onChangeFunc() : function () { }" />
     </div>
   </div>
 
 
 
   <div v-if="addon">
-    <component :is="addon" :item="item" />
+    <component :is="addon"
+               :item="item" />
   </div>
 </template>
 
@@ -45,7 +52,8 @@ const emit = defineEmits(['eventTriggered'])
 const props = defineProps({
   item: { type: Object, required: true },
   formatter: { type: Object as PropType<TableFormatter<Object>>, required: true },
-  addon: { type: Object, required: false, default: null }
+  addon: { type: Object, required: false, default: null },
+  itemIndex: { type: String, required: false, default: 0 }
 })
 
 const getColSpan = function (item: TableRow): number {
@@ -59,11 +67,11 @@ const triggerEvent = function (action: AdditionalActionsConfig) {
   emit('eventTriggered', props.item, action)
 }
 
-const rowItemsWithIndex = function(rowIndex: number): TableRow[] {
+const rowItemsWithIndex = function (rowIndex: number): TableRow[] {
   if (rowIndex === 0) {
     return props.formatter.columns(props.item).filter(i => !i.rowIndex || i.rowIndex === rowIndex)
-  } 
-  
+  }
+
   return props.formatter.columns(props.item).filter(i => i.rowIndex === rowIndex)
 }
 
