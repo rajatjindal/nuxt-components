@@ -6,7 +6,8 @@
   </div>
   <div v-for="(item, index) in items"
        :key="index">
-    <div :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true , ['bg-blue-50 text-blue-900']: +index % 2 === 0}">
+    <div
+         :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true, ['bg-blue-50 text-blue-900']: +index % 2 === 0 }">
       <ListTableRow :item="item"
                     :addon="addon"
                     :itemIndex="index"
@@ -42,8 +43,8 @@ const accumulator = function (prevValue: number, item: TableRow) {
 
 const first = props.items && props.items.length > 0 ? props.items[0] : null;
 const gridclass = computed(() => {
-  const cols = props.formatter.columns(first).reduce<number>(accumulator, 1)
-  return 'grid grid-cols-' + cols.toString() + ' gap-4 border-neutral-300 border px-4 py-2'
+  const cols = props.formatter.columns(first).reduce<number>(accumulator, 0)
+  return ' grid grid-cols-' + (props.formatter.additionalActions(first).length > 0 ? (cols + 1).toString() : cols.toString()) + ' gap-4 border-neutral-300 border px-4 py-2'
 })
 
 const isLastIndex = function (rawIndex: string): boolean {
