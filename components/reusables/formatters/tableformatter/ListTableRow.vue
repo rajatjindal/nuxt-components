@@ -5,7 +5,7 @@
     <div class="text-xs text-left"
          :class="{ [row.class]: true }">
       <component v-if="row.rawHTML"
-                 :is="compile(row.rawHTML)"></component>
+                 :is="ocompile(row.rawHTML, row.rawHTML)"></component>
       <span v-else-if="!row.editable">{{ row.value }}</span>
       <EditableInputNumber v-else-if="row.editable"
                            :raw="(row.value as number)"
@@ -46,6 +46,8 @@
 import type { TableFormatter, TableRow } from '@rajatjindal1983/crud-sdk';
 import type { AdditionalActionsConfig } from '@rajatjindal1983/crud-sdk'
 import { compile } from 'vue';
+import type { RenderFunction } from 'vue';
+import EmptyComponent from './EmptyComponent.vue';
 
 const emit = defineEmits(['eventTriggered'])
 
@@ -75,4 +77,13 @@ const rowItemsWithIndex = function (rowIndex: number): TableRow[] {
   return props.formatter.columns(props.item).filter(i => i.rowIndex === rowIndex)
 }
 
+const ocompile = function(title: string, raw: string): RenderFunction {
+  try {
+    return compile(raw)
+  } catch (error) {
+    console.log("failed to compile raw html into vue component ", raw)
+  }
+
+  return compile('<span class="text-red-400">failed to load data. <br/>pls report this error</span>')
+}
 </script>

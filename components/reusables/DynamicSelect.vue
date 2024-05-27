@@ -86,6 +86,7 @@ watch(() => clone(inputvalue.value), (currentValue, oldValue) => {
 })
 
 const showOptions = ref(props.showingOptions);
+console.log("props.items", props.items)
 const filteredItems = computed(() => props.items.filter(item => props.formatter.toSelectOption(item).title !== '' && props.formatter.toSelectOption(item).title?.toLowerCase().includes(inputvalue.value.toLowerCase())))
 
 const selected: Ref<Object> = ref(props.modelValue)

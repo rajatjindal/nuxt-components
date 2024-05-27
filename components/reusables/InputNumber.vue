@@ -8,7 +8,7 @@
 					 :disabled="!editable"
 					 class="w-full border border-neutral-300 px-2 py-2 rounded-r-md text-xs focus:outline-none focus:border-2 focus:ring-primary-200 focus:border-primary-200 placeholder-neutral-400 focus:placeholder-neutral-50"
 					 :placeholder="placeholder"
-					 v-on:input="updateInput"
+					 v-on:input="lazyUpdateInput"
 					 v-on:focus="toggleFocused"
 					 v-on:blur="toggleFocused"
 					 :value="modelValue"
@@ -46,4 +46,19 @@ const updateInput = function (event: Event) {
 
 	emit('update:modelValue', Number(el.value))
 }
+
+function debounce<Params extends any[]>(
+	func: (...args: Params) => any,
+	timeout: number,
+): (...args: Params) => void {
+	let timer: NodeJS.Timeout
+	return (...args: Params) => {
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			func(...args)
+		}, timeout)
+	}
+}
+
+const lazyUpdateInput = debounce(updateInput, 500)
 </script>

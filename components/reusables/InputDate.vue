@@ -18,9 +18,10 @@
 </template>
 <script setup lang="ts">
 import moment from 'moment'
-import type {Moment} from 'moment-timezone'
+import type { Moment } from 'moment-timezone'
 
 import type { MomentInput } from 'moment'
+import { formatDate } from '@rajatjindal1983/crud-sdk';
 
 const emit = defineEmits(['update:modelValue', 'focus', 'blur'])
 
@@ -43,12 +44,13 @@ const toggleFocused = function () {
 	emit('focus')
 }
 
-const format = function(date: string | null): string {
-	if (date === "") {
+const format = function (date: string | null): string {
+	if (!date || date === "") {
 		return ''
 	}
 
-	return moment(date as MomentInput).tz('Asia/Kolkata', true).format("YYYY-MM-DD").toString()
+	// return moment(date as MomentInput).tz('Asia/Kolkata', true).format("YYYY-MM-DD").toString()
+	return formatDate(date)
 }
 
 const updateInput = function (event: Event) {
