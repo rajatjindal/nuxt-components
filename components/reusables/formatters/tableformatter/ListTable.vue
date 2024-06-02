@@ -43,8 +43,17 @@ const accumulator = function (prevValue: number, item: TableRow) {
 
 const first = props.items && props.items.length > 0 ? props.items[0] : null;
 const gridclass = computed(() => {
-  const cols = props.formatter.columns(first).reduce<number>(accumulator, 0)
-  return ' grid grid-cols-' + (props.formatter.additionalActions(first).length > 0 ? (cols + 1).toString() : cols.toString()) + ' gap-4 border-neutral-300 border px-4 py-2'
+  let cols = props.formatter.columns(first).reduce<number>(accumulator, 0)
+
+  if (props.formatter.lastColumnActions(first).length > 0) {
+    cols += 2
+  }
+
+  if (props.formatter.additionalActions(first).length > 0) {
+    cols += 1
+  }
+
+  return ' grid grid-cols-' + cols.toString() + ' gap-4 border-neutral-300 border px-4 py-2'
 })
 
 const isLastIndex = function (rawIndex: string): boolean {

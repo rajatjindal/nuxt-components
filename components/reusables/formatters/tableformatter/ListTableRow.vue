@@ -13,6 +13,13 @@
     </div>
   </div>
 
+  <div v-if="formatter.lastColumnActions(item).length > 0"
+       class="col-span-1 text-right grid justify-items-end h-6">
+    <LastColumnActions :actions="formatter.lastColumnActions(item)"
+                       :formatter="formatter"
+                       v-on:eventTriggered="triggerEvent" />
+  </div>
+
   <div v-if="formatter.additionalActions(item).length > 0"
        class="col-span-1 text-right grid justify-items-end h-6">
     <AdditionalActions :actions="formatter.additionalActions(item)"
@@ -48,6 +55,7 @@ import type { AdditionalActionsConfig } from '@rajatjindal1983/crud-sdk'
 import { compile } from 'vue';
 import type { RenderFunction } from 'vue';
 import EmptyComponent from './EmptyComponent.vue';
+import LastColumnActions from './LastColumnActions.vue';
 
 const emit = defineEmits(['eventTriggered'])
 
@@ -77,7 +85,7 @@ const rowItemsWithIndex = function (rowIndex: number): TableRow[] {
   return props.formatter.columns(props.item).filter(i => i.rowIndex === rowIndex)
 }
 
-const ocompile = function(title: string, raw: string): RenderFunction {
+const ocompile = function (title: string, raw: string): RenderFunction {
   try {
     return compile(raw)
   } catch (error) {

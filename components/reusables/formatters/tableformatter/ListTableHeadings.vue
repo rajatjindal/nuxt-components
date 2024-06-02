@@ -7,7 +7,12 @@
     </div>
   </div>
 
-  <div class="col-span-1">
+  <div class="col-span-2" v-if="$props.formatter.lastColumnActions(item).length > 0">
+    <div class="py-1 text-right text-xs font-medium text-neutral-500 tracking-wider">
+    </div>
+  </div>
+  
+  <div class="col-span-1" v-if="$props.formatter.additionalActions(item).length > 0">
     <div class="py-1 text-right text-xs font-medium text-neutral-500 tracking-wider">
     </div>
   </div>
