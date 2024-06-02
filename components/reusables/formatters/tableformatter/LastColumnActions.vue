@@ -5,15 +5,14 @@
            :key="index">
         
         <a v-if="action.link && action.showIf && action.showIf()" :href="action.link" class="ml-1">
-          <icon v-if="action.icon" :name="action.icon!" color="black" class="w-5 h-5" />
+          <icon v-if="action.icon" :name="action.icon!" :color="action.icon === 'mdi:multiply-bold' ? 'red' : 'black'" class="w-5 h-5" />
         </a>
 
         <div class="ml-1"
              v-if="action.callback && action.showIf && action.showIf()"
              v-on:click="action.callback">
-          <icon v-if="action.icon" :name="action.icon!" color="black" class="w-5 h-5" />
+          <icon v-if="action.icon" :name="action.icon!" :color="action.icon === 'mdi:multiply-bold' ? 'red' : 'black'" class="w-5 h-5" />
         </div>
-
       </div>
     </div>
   </div>
