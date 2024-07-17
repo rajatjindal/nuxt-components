@@ -3,15 +3,19 @@
     <div class="flex">
       <div v-for="(action, index) in actions"
            :key="index">
-        
-        <a v-if="action.link && action.showIf && action.showIf()" :href="action.link" class="ml-1">
-          <icon v-if="action.icon" :name="action.icon!" :color="action.icon === 'mdi:multiply-bold' ? 'red' : 'black'" class="w-5 h-5" />
+
+        <a v-if="action.link && action.showIf && action.showIf()"
+           :href="action.link"
+           class="ml-1">
+          <component v-if="action.icon"
+                     :is="ocompile(action.icon, action.icon)"></component>
         </a>
 
         <div class="ml-1"
              v-if="action.callback && action.showIf && action.showIf()"
              v-on:click="action.callback">
-          <icon v-if="action.icon" :name="action.icon!" :color="action.icon === 'mdi:multiply-bold' ? 'red' : 'black'" class="w-5 h-5" />
+          <component v-if="action.icon"
+                     :is="ocompile(action.icon, action.icon)"></component>
         </div>
       </div>
     </div>
@@ -21,6 +25,8 @@
 <script setup lang="ts">
 import type { AdditionalActionsConfig } from '@rajatjindal1983/crud-sdk'
 import type { TableFormatter } from '@rajatjindal1983/crud-sdk';
+import { compile } from 'vue';
+import type { RenderFunction } from 'vue';
 
 const emit = defineEmits(['eventTriggered'])
 
@@ -50,5 +56,15 @@ const cancelTimeout = function () {
 const triggerEvent = function (action: AdditionalActionsConfig) {
   emit('eventTriggered', action)
   showOptions.value = false
+}
+
+const ocompile = function (title: string, raw: string): RenderFunction {
+  try {
+    return compile(raw)
+  } catch (error) {
+    console.log("failed to compile raw html into vue component ", raw)
+  }
+
+  return compile('<span class="text-red-400">failed to load data. <br/>pls report this error</span>')
 }
 </script>
