@@ -4,6 +4,6 @@
 
 <script>
 export default {
-	name: "HostelIcon",
+	name: "UniversityIcon",
 };
 </script>
