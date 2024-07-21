@@ -49,12 +49,11 @@ const format = function (date: string | null): string {
 		return ''
 	}
 
-	// return moment(date as MomentInput).tz('Asia/Kolkata', true).format("YYYY-MM-DD").toString()
-	return formatDate(date)
+	return moment(date as MomentInput).format("YYYY-MM-DD").toString()
 }
 
 const updateInput = function (event: Event) {
 	const el = event.target as HTMLInputElement;
-	emit('update:modelValue', moment(el.value as MomentInput).tz('Asia/Kolkata', true).format())
+	emit('update:modelValue', moment(el.value as MomentInput).format())
 }
 </script>
