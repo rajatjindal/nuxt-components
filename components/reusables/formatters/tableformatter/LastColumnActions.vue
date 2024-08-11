@@ -62,7 +62,7 @@ const ocompile = function (title: string, raw: string): RenderFunction {
   try {
     return compile(raw)
   } catch (error) {
-    console.log("failed to compile raw html into vue component ", raw)
+    console.log("failed to compile raw html into vue component ", raw, "\nerror -> ", error)
   }
 
   return compile('<span class="text-red-400">failed to load data. <br/>pls report this error</span>')
