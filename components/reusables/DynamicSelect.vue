@@ -2,17 +2,17 @@
 	<div class="w-full relative">
 		<div class="">
 			<label v-if="label !== ''"
-						 class="block text-xs text-neutral-400 mb-0.5">
+						 class="block text-xs text-gray-400 mb-0.5">
 				{{ label }}
 			</label>
 			<div class="flex">
 				<div v-if="!showOptions"
 						 v-on:click="enableShowOptions"
 						 :class="{ 'bg-gray-200': !editable }"
-						 class="shadow-2xl w-full border border-neutral-300 px-2 py-2 rounded-r-md text-xs focus:outline-none focus:border-2 focus:ring-primary-200 focus:border-primary-200 placeholder-neutral-400 focus:placeholder-neutral-50">
+						 class="shadow-2xl w-full border border-gray-300 px-2 py-2 rounded-r-md text-xs focus:outline-none focus:border-2 focus:ring-indigo-200 focus:border-indigo-200 placeholder-gray-400 focus:placeholder-gray-50">
 					<span v-if="selected">{{ formatter.toSelectOption(selected).title }}</span>
 					<span v-else
-								class="w-full rounded-r-md text-xs text-neutral-400">
+								class="w-full rounded-r-md text-xs text-gray-400">
 						click to select
 					</span>
 				</div>
@@ -33,18 +33,18 @@
 			</div>
 
 			<ul
-					class="absolute z-10 w-full min-w-min border-t-0 border-neutral-300 bg-white rounded shadow-neutral-300 shadow-2xl max-h-56 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm mb-2">
+					class="absolute z-10 w-full min-w-min border-t-0 border-gray-300 bg-white rounded shadow-gray-300 shadow-2xl max-h-56 py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm mb-2">
 				<li>
 					<div v-on:click="updateSelected({})"
-							 class="z-100 text-neutral-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-neutral-200 text-xs hover:bg-neutral-100 flex justify-between">
+							 class="z-100 text-gray-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-gray-200 text-xs hover:bg-gray-100 flex justify-between">
 						-
 					</div>
 					<div v-on:click="updateSelected(selected)"
 							 v-if="selected && formatter.toSelectOption(selected).key"
-							 class="z-100 text-neutral-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-neutral-200 text-xs hover:bg-neutral-100 flex justify-between">
+							 class="z-100 text-gray-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-gray-200 text-xs hover:bg-gray-100 flex justify-between">
 						<p>{{ formatter.toSelectOption(selected).title }}</p>
 						<p v-if="formatter.toSelectOption(selected).subtitle" class="text-gray-400">{{ formatter.toSelectOption(selected).subtitle }}</p>
-						<CheckIcon class="-mt-1 text-greenaccent-600" />
+						<CheckIcon class="-mt-1 text-green-600" />
 					</div>
 				</li>
 
@@ -52,7 +52,7 @@
 					<div v-if="!selected || (selected && formatter.toSelectOption(selected).key !== formatter.toSelectOption(item).key)"
 							 v-on:click="updateSelected(item)"
 							 v-on:blur="disableShowOptions"
-							 class="z-100 text-neutral-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-neutral-200 text-xs hover:bg-neutral-100">
+							 class="z-100 text-gray-900 cursor-default select-none relative py-3 pl-3 pr-9 border-b border-gray-200 text-xs hover:bg-gray-100">
 						<p>{{ formatter.toSelectOption(item).title }}</p>
 						<p v-if="formatter.toSelectOption(item).subtitle" class="text-gray-400">{{ formatter.toSelectOption(item).subtitle }}</p>
 					</div>

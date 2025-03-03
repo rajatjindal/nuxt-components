@@ -1,12 +1,12 @@
 <template>
 	<div class="w-full">
 		<label v-if="showLabel && label !== ''"
-					 class="block text-xs text-neutral-400">
+					 class="block text-xs text-gray-400">
 			{{ label }}
 		</label>
 		<input type="date"
 					 :disabled="!editable"
-					 class="w-full border border-neutral-300 px-2 py-2 rounded-r-md text-xs focus:outline-none focus:border-2 focus:ring-primary-200 focus:border-primary-200 placeholder-neutral-400 focus:placeholder-neutral-50"
+					 class="w-full border border-gray-300 px-2 py-2 rounded-r-md text-xs focus:outline-none focus:border-2 focus:ring-indigo-200 focus:border-indigo-200 placeholder-gray-400 focus:placeholder-gray-50"
 					 :placeholder="placeholder"
 					 v-on:input="updateInput"
 					 v-on:focus="toggleFocused"

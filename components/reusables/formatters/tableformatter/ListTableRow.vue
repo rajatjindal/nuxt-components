@@ -31,7 +31,7 @@
        v-for="(row, index) in rowItemsWithIndex(1)"
        :key="index">
     <div class="text-xs text-left"
-         :class="{ [row.class]: true, 'text-neutral-600': +itemIndex % 2 !== 0, 'text-blue-900': +itemIndex % 2 === 0 }">
+         :class="{ [row.class]: true, 'text-gray-600': +itemIndex % 2 !== 0, 'text-blue-900': +itemIndex % 2 === 0 }">
       <component v-if="row.rawHTML"
                  :is="compile(row.rawHTML)"></component>
       <span v-else-if="!row.editable">{{ row.value }}</span>

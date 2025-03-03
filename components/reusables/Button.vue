@@ -18,15 +18,15 @@
 import { defineAsyncComponent } from "vue";
 
 const props = defineProps({
-  bgcolor: { type: String, default: 'bg-primary-50' },
-  bordercolor: { type: String, default: 'border-primary-500' },
+  bgcolor: { type: String, default: 'bg-indigo-50' },
+  bordercolor: { type: String, default: 'border-indigo-500' },
   callback: { type: Function as PropType<(event: MouseEvent) => void> },
-  hoverbgcolor: { type: String, default: 'hover:bg-primary-200' },
-  hovertextcolor: { type: String, default: 'hover:text-neutral-1000' },
+  hoverbgcolor: { type: String, default: 'hover:bg-indigo-200' },
+  hovertextcolor: { type: String, default: 'hover:text-gray-1000' },
   hovereffect: { type: Boolean, default: true, },
   icon: { type: String, default: null },
   text: { type: String, default: "Save" },
-  textcolor: { type: String, default: 'text-primary-800' },
+  textcolor: { type: String, default: 'text-indigo-800' },
 })
 
 const loading = ref(false);

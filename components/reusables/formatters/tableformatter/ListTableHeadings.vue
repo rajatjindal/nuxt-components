@@ -2,18 +2,18 @@
   <div :class="colclass(row)"
        v-for="(row, index) in rowItemsWithIndex(0)">
     <div :class="{ [row.class]: true }"
-         class="py-1 text-left text-xs font-medium text-neutral-500 tracking-wider">
+         class="py-1 text-left text-xs font-medium text-gray-500 tracking-wider">
       {{ row.title }}
     </div>
   </div>
 
   <div class="col-span-2" v-if="$props.formatter.lastColumnActions(item).length > 0">
-    <div class="py-1 text-right text-xs font-medium text-neutral-500 tracking-wider">
+    <div class="py-1 text-right text-xs font-medium text-gray-500 tracking-wider">
     </div>
   </div>
   
   <div class="col-span-1" v-if="$props.formatter.additionalActions(item).length > 0">
-    <div class="py-1 text-right text-xs font-medium text-neutral-500 tracking-wider">
+    <div class="py-1 text-right text-xs font-medium text-gray-500 tracking-wider">
     </div>
   </div>
 </template>

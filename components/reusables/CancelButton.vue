@@ -1,13 +1,13 @@
 <template>
-  <Button bgcolor="bg-neutral-50"
-          bordercolor="border-neutral-400"
+  <Button bgcolor="bg-gray-50"
+          bordercolor="border-gray-400"
           :callback="callback"
-          hoverbgcolor="hover:bg-neutral-100"
-          hovertextcolor="hover:text-neutral-700"
+          hoverbgcolor="hover:bg-gray-100"
+          hovertextcolor="hover:text-gray-700"
           :hovereffect="true"
           :icon="icon"
           :text="text"
-          textcolor="text-neutral-800" />
+          textcolor="text-gray-800" />
 </template>
 
 <script setup lang="ts">

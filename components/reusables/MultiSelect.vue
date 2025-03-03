@@ -1,7 +1,7 @@
 <template>
 	<div class="w-full">
 		<label v-if="showLabel && label !== ''"
-					 class="block text-xs text-neutral-400 mb-0.5">
+					 class="block text-xs text-gray-400 mb-0.5">
 			{{ label }}
 		</label>
 

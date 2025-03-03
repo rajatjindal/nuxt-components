@@ -1,6 +1,6 @@
 <template>
   <div :class="gridclass"
-       class="bg-neutral-50 rounded-t-md border-b-0 mt-1">
+       class="bg-gray-50 rounded-t-md border-b-0 mt-1">
     <ListTableHeadings :item="first"
                        :formatter="formatter" />
   </div>
@@ -53,7 +53,7 @@ const gridclass = computed(() => {
     cols += 1
   }
 
-  return ' grid grid-cols-' + cols.toString() + ' gap-4 border-neutral-300 border px-4 py-2'
+  return ' grid grid-cols-' + cols.toString() + ' gap-4 border-gray-300 border px-4 py-2'
 })
 
 const isLastIndex = function (rawIndex: string): boolean {

@@ -1,11 +1,11 @@
 <template>
-	<div class="w-full font-semibold text-neutral-700 flex text-xs">
+	<div class="w-full font-semibold text-gray-700 flex text-xs">
 		<span v-for="bread, index in breads"
 					class="flex"
 					:key="index">
 			<span class="capitalize">{{ bread }}</span>
 			<span v-if="!isLastElement(index, breads)"
-						class="text-neutral-400 text-sm -mt-1">
+						class="text-gray-400 text-sm -mt-1">
 				<ChevronRight />
 			</span>
 		</span>
