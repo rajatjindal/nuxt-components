@@ -63,7 +63,7 @@ const props = defineProps({
   item: { type: Object, required: true },
   formatter: { type: Object as PropType<TableFormatter<Object>>, required: true },
   addon: { type: Object, required: false, default: null },
-  itemIndex: { type: String, required: false, default: 0 }
+  itemIndex: { type: Number, required: false, default: 0 }
 })
 
 const getColSpan = function (item: TableRow): number {

@@ -10,7 +10,7 @@
          :class="{ 'border-b-0': !isLastIndex(index), [gridclass.toString()]: true, ['bg-blue-50 text-blue-900']: +index % 2 === 0 }">
       <ListTableRow :item="item"
                     :addon="addon"
-                    :itemIndex="index"
+                    :itemIndex="Number(index)"
                     v-on:eventTriggered="triggerEvent"
                     :formatter="formatter" />
     </div>
